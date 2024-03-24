@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import moment from 'moment-timezone';
 import { Suspense, useId } from 'react';
 
@@ -40,9 +39,7 @@ const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="scroll" overflowY="hidden">
             <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
-              {_.map(featureList, (feature) => (
-                <FeatureCard key={feature.id} bookId={feature.book.id} />
-              ))}
+              {featureList?.map((feature) => <FeatureCard key={feature.id} bookId={feature.book.id} />)}
             </Flex>
           </Box>
         </Box>
@@ -56,9 +53,7 @@ const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="hidden" overflowY="hidden">
             <Flex align="center" as="ul" direction="column" justify="center">
-              {_.map(rankingList, (ranking) => (
-                <RankingCard key={ranking.id} bookId={ranking.book.id} />
-              ))}
+              {rankingList?.map((ranking) => <RankingCard key={ranking.id} bookId={ranking.book.id} />)}
             </Flex>
           </Box>
         </Box>
@@ -72,9 +67,7 @@ const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="scroll" overflowY="hidden">
             <Flex align="stretch" gap={Space * 2} justify="flex-start">
-              {_.map(release.books, (book) => (
-                <BookCard key={book.id} bookId={book.id} />
-              ))}
+              {release?.books.map((book) => <BookCard key={book.id} bookId={book.id} />)}
             </Flex>
           </Box>
         </Box>
